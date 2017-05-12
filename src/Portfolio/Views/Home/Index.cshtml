@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Portfolio.Models.Project>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <title>Nick's Portfolio</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">NMead</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#aboutLink">About Me</a></li>
+                <li><a href="#projectLink">Projects</a></li>
+                <li><a href="#contactLink">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="module parallax parallax-1">
+        <div class="container">
+            <h1>Welcome</h1>
+        </div>
+    </section>
+
+    <section class="module content">
+        <div class="container info about" id="aboutLink">
+            <h2 class="title title-about">About Me</h2>
+            <hr class="line">
+
+            <div class="education">
+                <h3>Education</h3>
+                <ul>
+                    <li>Bachelors in Mathematics (University of Washington 2011-2016)</li>
+                    <li>Epicodus Code School (2017-Current)</li>
+                </ul>
+            </div>
+
+            <div class="skillset">
+                <h3>Technology</h3>
+                <h4>Languages, Frameworks & Libraries</h4>
+                <ul>
+                    <li><img src="img/htmlcss.jpg"></li>
+                    <li><img src="img/node.jpg"></li>
+                    <li><img src="img/mongo.png"></li>
+                </ul>
+            </div>
+
+            <div class="prof-img">
+                <img src="img/profile.jpg" alt="A Handsome Stud">
+            </div>
+        </div>
+    </section>
+
+    <section class="module parallax parallax-2">
+        <div class="container">
+            <h1 class="intro intro-project">Current Projects</h1>
+        </div>
+    </section>
+
+    <section class="module content">
+        <div class="container info project" id="projectLink">
+
+            <div class="proj">
+                <img src="img/voting.png" alt="">
+                <div class="votingDesc">
+                    <h3>Voting Application (Unfinished)</h3>
+                    <ul>
+                        <li>Created a <em>Basic</em> App to track voting results of a poll with 3 options</li>
+                        <li>Practiced implementing basic CRUD functionality</li>
+                        <li>Technology</li>
+                        <ul>
+                            <li><strong>Node.js</strong></li>
+                            <li><strong>MongoDB</strong></li>
+                            <li><strong>Html</strong>, <strong>Css</strong>, <strong>Javascript</strong></li>
+                        </ul>
+                    </ul>
+                </div>
+
+            </div>
+
+            @foreach(var project in Model)
+            {
+                if(project.stargazers_count > 0)
+                {
+                    <div class="proj">
+                        <div class="votingDesc">
+                            <h3>@project.name</h3>
+                            <h5>@project.html_url</h5>
+                        </div>
+                    </div>
+
+                }
+
+            }
+
+            <div class="gitHub">
+                <h4>Find my GitHub <a href="https://github.com/NMead93">here</a></h4>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="module parallax parallax-3">
+        <div class="container content">
+            <h1>Contact</h1>
+        </div>
+    </section>
+
+    <section class="module content">
+        <div class="container info contact" id="contactLink">
+            <h2 class="title title-contact">Want to Get in Touch?</h2>
+            <p>Fill out and submit this form and I will reply to any questions and inquiries</p>
+            <hr class="line">
+            <div class="inquiry">
+                <form>
+                    <input type="text" name="name" value="Name">
+                    <input type="text" name="email" value="Email">
+                    <input type="text" name="phone" value="Phone">
+                    <input type="text" name="message" value="Message">
+                    <input type="button" class="btn btn-info" value="Submit">
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
